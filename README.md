@@ -2,10 +2,7 @@
 
 Welcome to the STAR-EX Wormhole update for our smart contract. This update is part of our submission to the Wormhole Hackathon and focuses on enhancing cross-chain interactions within the STAR-EX GameFi ecosystem.
 
-<blockquote class="twitter-tweet">
-<a href="https://x.com/theras_labs/status/1830344688425156642"></a>
-</blockquote>
-<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+<blockquote class="twitter-tweet"><p lang="en" dir="ltr">3/ Remember how crucial <a href="https://twitter.com/hashtag/Interoperability?src=hash&amp;ref_src=twsrc%5Etfw">#Interoperability</a> is in <a href="https://twitter.com/hashtag/STAR_EX?src=hash&amp;ref_src=twsrc%5Etfw">#STAR_EX</a>, as it&#39;s a cross-chain GameFi project with big goals, involving 32+ network chains in the first-tier league, including several EVM networks and <a href="https://twitter.com/Polkadot?ref_src=twsrc%5Etfw">@Polkadot</a>. <br><br>We&#39;re now integrating <a href="https://twitter.com/wormhole?ref_src=twsrc%5Etfw">@wormhole</a> <a href="https://twitter.com/WormholeEco?ref_src=twsrc%5Etfw">@WormholeEco</a> <a href="https://twitter.com/WormholeFdn?ref_src=twsrc%5Etfw">@WormholeFdn</a> into our… <a href="https://t.co/SwqD7ppLAi">pic.twitter.com/SwqD7ppLAi</a></p>&mdash; THERAS Labs (@theras_labs) <a href="https://twitter.com/theras_labs/status/1830344688425156642?ref_src=twsrc%5Etfw">September 1, 2024</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 
 ## Introduction to STAR-EX
 
