@@ -2,6 +2,11 @@
 
 Welcome to the STAR-EX Wormhole update for our smart contract. This update is part of our submission to the Wormhole Hackathon and focuses on enhancing cross-chain interactions within the STAR-EX GameFi ecosystem.
 
+<blockquote class="twitter-tweet">
+<a href="https://x.com/theras_labs/status/1830344688425156642"></a>
+</blockquote>
+<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+
 ## Introduction to STAR-EX
 
 STAR-EX is an L3 GameFi project that fosters interoperability between various blockchain networks. The goal is to create an environment where different networks collaborate and compete within the game, enriching the community interaction and experience. The game is inspired by a lore about dimension explorers, where each dimension represents a different network, akin to how countries operate in the real world.
@@ -19,6 +24,7 @@ Alternatively, players can engage in staking gameplay to collect NFT materials, 
 ## Contract Implementation
 
 Our implementation is designed to be flexible, allowing for various conditions leveraging the payload bytes. We have written 2 main contracts on this code implementation:
+[contract/wormhole](https://github.com/Theras-Labs/tokenised-contracts/tree/7054f514e3eb812216088fab1cf409b89995c516/contracts/wormhole)
 
 - **Hub Contract**: Central contract for cross-chain interactions.
 - **Wormhole Manager**: Deployed on every chain.
