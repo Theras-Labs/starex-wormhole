@@ -1,0 +1,3 @@
+[submodule "tokenised-contracts"]
+	path = tokenised-contracts
+	url = https://github.com/Theras-Labs/tokenised-contracts
