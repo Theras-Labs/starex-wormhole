@@ -8,11 +8,11 @@ STAR-EX is an L3 GameFi project that fosters interoperability between various bl
 
 Each network (country) has its own native currency and assets (NFTs) with supply and demand dynamics. Networks can produce these assets to advance in challenges and survive within STAR-EX, just as countries produce and utilize assets to advance their civilization and economy. Networks will compete for territories and assets, while less popular or new networks (3rd world countries) will support others, focusing on collaboration.
 
-<img src="img/economic_warfare.png" alt="Economic Warfare" style="width:50%;" />
+<img src="img/economic_warfare.png" alt="Economic Warfare" style="width:100%;" />
 
 Everything within STAR-EX, from territories, game modes, music packs, to abilities, is represented as NFTs. Players will engage in various game zones directly through action gameplay.
 
-<img src="img/mobile_dimension.png" alt="mobile dimension" style="width:50%;" />
+<img src="img/mobile_dimension.png" alt="mobile dimension" style="width:100%;" />
 
 Alternatively, players can engage in staking gameplay to collect NFT materials, which they can then craft into desired NFTs. These materials are sourced from various network chains, and players can engage in governance and war systems to control these resources (ERC-20, ERC-721).
 
@@ -127,9 +127,9 @@ The Hub contract is deployed once in moonbeam leveraging the polkadot interactio
 
 Avoid fractional swaps/bridges by allowing users to purchase exclusive event items on unfamiliar network chains using their preferred tokens. This eliminates the need to find available liquidity on DEXs.
 
-<img src="img/event_sale.png" alt="Event Sale" style="width:50%;" />
+<img src="img/event_sale.png" alt="Event Sale" style="width:100%;" />
 
-<img src="img/cross_chain_purchase.png" alt="Cross Chain Purchase" style="width:50%;" />
+<img src="img/cross_chain_purchase.png" alt="Cross Chain Purchase" style="width:100%;" />
 
 ### Multiple Interactions in a Single Transaction
 
@@ -141,7 +141,7 @@ Include multiple interactions, such as airdrops, in a single transaction. For ex
 
 Users can benefit from higher success rates, higher rarity, or multiple results for low-tier NFTs through cross-crafting. This feature boosts transactions on other chains and balances game resources.
 
-<img src="img/cross_crafting_benefit.png" alt="Cross Crafting" style="width:50%;" />
+<img src="img/cross_crafting_benefit.png" alt="Cross Crafting" style="width:100%;" />
 
 ## Implementations
 
