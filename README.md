@@ -9,7 +9,8 @@ Welcome to the STAR-EX Wormhole update for our smart contract. This update is pa
 - Intro to STAR-EX
 - Contract Implementation & Strategy
 - Deployed Contracts
-- Demo
+- Demo-UI
+- Demo-TX
 - Goals for integrations
 - What's next
 - Other Links
@@ -136,7 +137,7 @@ The Hub contract is deployed once in moonbeam leveraging the polkadot interactio
 
 really hard to get big faucet for the 4th network, only celo and moonbeam that easily provide with big faucet as I deploy a lot of contracts too. As sepolia i had my own faucet running.
 
-## Demo
+## Demo UI
 
 // demo -> it supposed to be buy 1 NFT from sepolia and get 1 from celo network too, but the sepolia to moonbeam take a decade to finish the tx. so it's from celo to moonbeam -> then rewarding the sepolia NFT.
 
@@ -170,7 +171,45 @@ const tx = await CeloWM_Manager.DIRECT_TEST_forwardWormholeTask(
 );
 ```
 
-the testing can be reverse into sepolia -> celo. but it has significant time as sepolia really takes time, like this:
+## Demo TX
+
+Here's I documented the last tx I made, although I made several already from experiments:
+
+So it will execute well like this, w/ destination address to 0X16B2...CF7028:
+https://wormholescan.io/#/tx/0x40a4adcfe75040b1b955054c6c1c501abffdd4cc4c5cf5f5c2d842569b3a0bfc?network=TESTNET
+<img src="img/start_wm.png" alt="Event Sale" style="width:100%;" />
+
+https://alfajores.celoscan.io/tx/0x40a4adcfe75040b1b955054c6c1c501abffdd4cc4c5cf5f5c2d842569b3a0bfc
+<img src="img/start_tx.png" alt="Event Sale" style="width:100%;" />
+
+and on moonbeam: ->
+https://moonbase.moonscan.io/address/0x16b2a8a0d95dcbc12d875da9dfd069eb92cf7028#internaltx
+there's 4 tx here including the refund for each bridge. (celo -> moonbeam) and (moonbeam -> sepolia)
+Can check through wormhole with each tx here.
+
+and on sepolia ->
+https://sepolia.etherscan.io/tx/0x9117cb5451139911aa55f49186163bc22b387e734276eb2fd64b8b2409232c95
+<img src="img/end_tx.png" alt="Event Sale" style="width:100%;" />
+
+https://wormholescan.io/#/tx/0x9117cb5451139911aa55f49186163bc22b387e734276eb2fd64b8b2409232c95?network=TESTNET
+<img src="img/end_wm.png" alt="Event Sale" style="width:100%;" />
+
+Since wormhole manager is actually doing cross-call from relayer to theras-shop in sepolia, then from theras-shop doing cross-call too minting to a sepolia NFT-address, while before relayer it also from bridge-endpoint. so on tx it will shows directly from bridge-endpoint to NFT address.
+
+feedback: probably good idea to state on the wormhole, which one is for refund, and also Im hardly to debug from wormhole.
+The arrow for next tx hash is pretty much useless for this nested tx, so i debug it from endpoint instead.
+
+So, Technically it will goes like this on SEPOLIA:
+
+1.  Sepolia Wormhole Bridge end point (0x734D539a7efEE15714a2755caa4280e12EF3d7e4)
+2.  Sepolia Wormhole relayer 0x7B1bD7a6b4E61c2a123AC6BC2cbfC614437D0470
+3.  Sepolia Theras Wormhole Manager (manage to go to crafting, shop, or marketplace or etc) (0x34B0b2B6858e68C17d790f6e9A17FE107b9cAC0d)
+4.  Sepolia Theras Shop (has authority to mint STAR-EX product -> 1155 Ship, 1155 Ability, 721 Ticket, etc ) )(0x66a5d7690D8dBbD4D8DbaCb860AA335403fDB4eC)
+5.  Sepolia NFT Ship (0x33A4298cB39329115Dbe8A7acC3EE8cD1223835F)
+
+0x734D539a7efEE15714a2755caa4280e12EF3d7e4 -> 0x7B1bD7a6b4E61c2a123AC6BC2cbfC614437D0470 -> 0x34B0b2B6858e68C17d790f6e9A17FE107b9cAC0d -> 0x66a5d7690D8dBbD4D8DbaCb860AA335403fDB4eC -> 0x33A4298cB39329115Dbe8A7acC3EE8cD1223835F
+
+the testing can be reverse into sepolia -> celo, but it has significant time on sepolia, and really takes time:
 
 ## Goals of the Wormhole Integration
 
