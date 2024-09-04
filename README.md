@@ -4,6 +4,16 @@ Welcome to the STAR-EX Wormhole update for our smart contract. This update is pa
 
 <blockquote class="twitter-tweet"><p lang="en" dir="ltr">3/ Remember how crucial <a href="https://twitter.com/hashtag/Interoperability?src=hash&amp;ref_src=twsrc%5Etfw">#Interoperability</a> is in <a href="https://twitter.com/hashtag/STAR_EX?src=hash&amp;ref_src=twsrc%5Etfw">#STAR_EX</a>, as it&#39;s a cross-chain GameFi project with big goals, involving 32+ network chains in the first-tier league, including several EVM networks and <a href="https://twitter.com/Polkadot?ref_src=twsrc%5Etfw">@Polkadot</a>. <br><br>We&#39;re now integrating <a href="https://twitter.com/wormhole?ref_src=twsrc%5Etfw">@wormhole</a> <a href="https://twitter.com/WormholeEco?ref_src=twsrc%5Etfw">@WormholeEco</a> <a href="https://twitter.com/WormholeFdn?ref_src=twsrc%5Etfw">@WormholeFdn</a> into our… <a href="https://t.co/SwqD7ppLAi">pic.twitter.com/SwqD7ppLAi</a></p>&mdash; THERAS Labs (@theras_labs) <a href="https://twitter.com/theras_labs/status/1830344688425156642?ref_src=twsrc%5Etfw">September 1, 2024</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 
+# Layout
+
+- Intro to STAR-EX
+- Contract Implementation & Strategy
+- Deployed Contracts
+- Demo
+- Goals for integrations
+- What's next
+- Other Links
+
 ## Introduction to STAR-EX
 
 STAR-EX is an L3 GameFi project that fosters interoperability between various blockchain networks. The goal is to create an environment where different networks collaborate and compete within the game, enriching the community interaction and experience. The game is inspired by a lore about dimension explorers, where each dimension represents a different network, akin to how countries operate in the real world.
@@ -110,19 +120,57 @@ The Hub contract is deployed once in moonbeam leveraging the polkadot interactio
 
 ## Deployed Contracts
 
-- **MoonbeamAlpha Testnet**: Hub Contract: 0xd65d3146f6a46158741DB47E56da197115879938
+- **MoonbeamAlpha Testnet**: Hub Contract: 0x16b2a8A0D95Dcbc12D875DA9DFD069eB92cf7028
 - **CELO Testnet**:
-  - Theras Shop: 0x823dA7aF4E3A0C8bcaD4462729Eb73e26dc3d45f
-  - Wormhole Manager: 0xed3f3e6eBf67cf360C5EF3f650e0E69CC3a70CAb
+  - Theras Shop: 0x3fEa66577Bc3fD5763b93F91aBc8739a02Fc4C81
+  - Wormhole Manager: 0x1b6765a024B67D420384627645aAe57044525322
   - Mock NFT-1155 (without Ticket system): 0xE348f87eb3fbE21F863768185347fC602B845940
 - **Sepolia Testnet**:
-  - Theras Shop: 0x81DD2ddE4FabB954A231B701550FcD7C35c547C6
-  - Wormhole Manager: 0x54fD2625d9FC056d1331781D2f1689Ca067fAcC3
+  - Theras Shop: 0x66a5d7690D8dBbD4D8DbaCb860AA335403fDB4eC
+  - Wormhole Manager: 0x34B0b2B6858e68C17d790f6e9A17FE107b9cAC0d
   - Mock NFT-1155: 0x33A4298cB39329115Dbe8A7acC3EE8cD1223835F
-- **Fuji Testnet**:
+- **~~Fuji Testnet~~**:
   - Theras Shop: 0x5c347CE1CA5606d992Fb31AB529C8A3d55a6E2d4
   - Wormhole Manager: 0xC8E633D1Da2b23A12458682cB0d065A4452b6030
 - Mock NFT-1155: 0x5b6288be71623E408D61D0417A51572d7CBC10e2
+
+really hard to get big faucet for the 4th network, only celo and moonbeam that easily provide with big faucet as I deploy a lot of contracts too. As sepolia i had my own faucet running.
+
+## Demo
+
+// demo -> it supposed to be buy 1 NFT from sepolia and get 1 from celo network too, but the sepolia to moonbeam take a decade to finish the tx. so it's from celo to moonbeam -> then rewarding the sepolia NFT.
+
+and for now I removed the purchase fee, so it's like claim NFT from celo and get 1 from sepolia. The event can be intepreted many things, from purchase NFT SHIP in ETH network with bonus of 2 Rare Material NFTs (from celo, and from avalanche) or crafting events with rewards in NFT from other chain. Depending our strategy and situation later.
+
+<img src="img/wm_events.png" alt="Event Sale" style="width:100%;" />
+
+the UIUX code can be try through this [demo-site](https://demo.starex.app/shop)
+
+PS: apparently we had major issue now, disturbing the other contract call. (Now other purchase unable to connect to rpc, most likely library problem) but I'm still unsure with the UI issue since it's already 5days finding out the bugs.
+
+So instead, I prepared the function without restriction directly in contract for testing purpose.
+
+```js
+// Celo WM Manager address =
+const tx = await CeloWM_Manager.DIRECT_TEST_forwardWormholeTask(
+  false, //
+  10002, // sepolia wormhole-id
+  "0x34B0b2B6858e68C17d790f6e9A17FE107b9cAC0d", // sepolia wormhole manager
+  "0x66a5d7690D8dBbD4D8DbaCb860AA335403fDB4eC", // sepolia theras shop
+  1, // quantity of product
+  1, // tokenId
+  "0x33A4298cB39329115Dbe8A7acC3EE8cD1223835F", // sepolia nft address
+  "0xA31A54e4C258B1BE8cE887a2724906BfCe88Cc6A", // recipient -> replace with yours
+  "0xA31A54e4C258B1BE8cE887a2724906BfCe88Cc6A", // refund address -> replace with yours
+  wormholeFeeMOON, // receiverValue feeHUB
+  {
+    value: wormholeFee, // + ?    (wormholeFeeMOON/ feeHUB) + chain = wormholeFee
+    gasPrice,
+  }
+);
+```
+
+the testing can be reverse into sepolia -> celo. but it has significant time as sepolia really takes time, like this:
 
 ## Goals of the Wormhole Integration
 
@@ -168,6 +216,18 @@ Users can benefit from higher success rates, higher rarity, or multiple results 
 
 These integrations will automate our cross on-chain gameplay and provide direct rewards during gameplay.
 ![Cross Crafting](img/aa.png)
+
+### Cross Staking Reward
+
+TBC - (deadline 1st November 2024)
+
+### Increasing our traction
+
+We are trying to increase our traction again but not from development, instead from our franchise marketing strategy first which heavily involved with our lore story artwork about dimension explorer (that's why game is also dimension explorer but as cross-chain), then proceed to open seed round! (previously done with NFT collab with many projects)
+
+The reason we do it on community level first with artwork+ai because progress of artwork and marketing can be done quicker than the progress from our current designer + ui-animator DUE to our limited budget, the team need to work for other project too. So this issue makes our ready UIUX slowly getting into production, although we have mainnet website https://starex.app but it's not fully ready yet to begin the MINTING WARS.
+
+(This will be slow be on december due to our budget, development and other designer take their time with other project too)
 
 **STAR-EX** is a rich world-building game that fully utilizes the Wormhole protocol to enable multi-dimension (multi-network) exploration, creating the most interesting gameplay interactions.
 
