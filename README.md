@@ -31,6 +31,9 @@ to this:
 Update our merchandise with wormhole too ❤️:
 <img src="img/shirt.png" alt="mobile dimension" style="width:100%;" />
 
+and [met](https://github.com/Theras-Labs/starex-wormhole?tab=readme-ov-file#random-event)
+with cool team from wormhole at token2049 event and multichain event!
+
 ## Introduction to STAR-EX
 
 STAR-EX is an L3 GameFi project that fosters interoperability between various blockchain networks. The goal is to create an environment where different networks collaborate and compete within the game, enriching the community interaction and experience. The game is inspired by a lore about dimension explorers, where each dimension represents a different network, akin to how countries operate in the real world.
@@ -299,3 +302,8 @@ We also plan to publicly open our cross-crafting feature to involve other projec
 - [Telegram](https://t.me/@dellwatson)
 - [Gamebook](https://gamebook.starex.app)
 - [Demo Link](https://demo.starex.app)
+
+## Random Event
+
+<img src="img/event_denise.png" alt="Event Sale" style="width:100%;" />
+<img src="img/event_willgush.png" alt="Event Sale" style="width:100%;" />
